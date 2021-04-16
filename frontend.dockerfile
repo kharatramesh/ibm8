@@ -8,5 +8,6 @@ RUN yum install yum-utils -y
 RUN yum-config-manager --enable remi-php72 -y
 RUN yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo -y
 EXPOSE 80
+COPY index.php /var/www/html
 RUN systemctl enable httpd
 CMD ["httpd", "-D", "FOREGROUND"]
